@@ -33,7 +33,6 @@ public class CreateEventTest {
         createButton.click();
         WebElement inputCity = driver.findElement(By.xpath("//input[@placeholder=\"Выберите город\"]"));
         inputCity.sendKeys("Пенза");
-       // inputCity.click();
        // inputCity.sendKeys(Keys.ENTER);
         //Select drpCity= new Select(driver.findElement(By.xpath("//Input[@id='asynchronous']")));
        // drpCity.selectByVisibleText("г. Пенза");
