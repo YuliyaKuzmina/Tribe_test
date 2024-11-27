@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -42,7 +43,16 @@ public class CreateEventTest {
         listCity.click();
         Thread.sleep(2000);
 
-        //WebElement inputAdress = driver.findElement(By.xpath("//input[@placeholder=\"Выберите город\"]"));
-       // inputAdress.sendKeys("Мос");
+        WebElement inputAdress = driver.findElement(By.xpath("//input[@placeholder=\"Выберите адрес\"]"));
+       // inputAdress.click();
+        inputAdress.sendKeys("Мостовая 6");
+        Thread.sleep(3000);
+        WebElement listAdress = driver.findElement(By.xpath("//*[contains (text(), 'ул. Мостовая 6')]"));
+        listAdress.click();
+       // listAdress.sendKeys(" 6");
+
+        WebElement nextButton = driver.findElement(By.xpath("//p[contains(text(), 'Далее')]"));
+        //nextButton.isDisplayed();
+        Assert.assertTrue(nextButton.isDisplayed());
     }
 }
