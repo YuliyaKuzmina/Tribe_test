@@ -15,7 +15,6 @@ public class TestGoogle {
         driver.get("https://tribual.ru");
         driver.manage().window().maximize();
     }
-   // String login = "prodigy.u1+2@mail.ru";
     @Test
     public void testDriver() {
        // driver.get("https://tribual.ru");
