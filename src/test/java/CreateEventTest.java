@@ -30,6 +30,7 @@ public class CreateEventTest {
 
     @Test
     public void createButton() throws InterruptedException {
+        Thread.sleep(1000);
         WebElement createButton = driver.findElement(By.xpath("//*[contains (text(), '+ Создать событие')]"));
         createButton.click();
         WebElement inputCity = driver.findElement(By.xpath("//input[@placeholder=\"Выберите город\"]"));
@@ -49,10 +50,31 @@ public class CreateEventTest {
         Thread.sleep(3000);
         WebElement listAdress = driver.findElement(By.xpath("//*[contains (text(), 'ул. Мостовая 6')]"));
         listAdress.click();
-       // listAdress.sendKeys(" 6");
 
         WebElement nextButton = driver.findElement(By.xpath("//p[contains(text(), 'Далее')]"));
-        //nextButton.isDisplayed();
         Assert.assertTrue(nextButton.isDisplayed());
+      // step 2
+        nextButton.click();
+        WebElement createEvent = driver.findElement(By.xpath("//div[contains (text(), 'Создание события')]"));
+        Assert.assertEquals(createEvent.getText(), "Создание события");
+        Thread.sleep(1000);
+        //WebElement typeOfEvent = driver.findElement(By.xpath("//div[contains (text(), 'Выберите тип события')]"));
+        WebElement typeOfEvent = driver.findElement(By.xpath("//div[@class = \" css-19bb58m\"]"));
+        typeOfEvent.click();
+        Thread.sleep(1000);
+        WebElement traveling = driver.findElement(By.xpath("//div[contains (text(), 'Поездки')]"));
+        traveling.click();
+        WebElement setTypeOfEvent = driver.findElement(By.xpath("//div[@class=\" css-uwhgar-singleValue\"]"));
+        Assert.assertEquals(setTypeOfEvent.getText(), "Поездки");
+
+        WebElement eventName = driver.findElement(By.xpath("//input[@placeholder=\"Название\"]"));
+        eventName.click();
+        eventName.sendKeys("Сплав на байдарках");
+        //eventName = driver.findElement(By.xpath("//input[@value=\"Сплав на байдарках\"]"));
+        String value = eventName.getAttribute("value");
+        Assert.assertEquals(value, "Сплав на байдарках");
+
+        driver.quit();
+
     }
 }
