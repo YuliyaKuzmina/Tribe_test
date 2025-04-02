@@ -15,7 +15,7 @@ public class ProjectUtils {
 
     static {
         properties = new Properties();
-        cromeOptions = new ChromeOptions();
+        chromeOptions = new ChromeOptions();
         String options = getValue("browser." + "chrome");
     }
 
@@ -34,5 +34,14 @@ public class ProjectUtils {
 
     private static String getValue(String name) {
         return properties.getProperty(name, System.getenv(convertPropToEnvName(name)));
+    }
+
+    static void get(WebDriver driver) {
+        driver.get(getURL());
+    }
+
+    static String getURL() {
+        String baseURL = "https://tribual.ru";
+        return baseURL;
     }
 }
