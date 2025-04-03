@@ -17,6 +17,7 @@ public abstract class BaseTest {
     protected void beforeMethod(Method method){
         driver = ProjectUtils.createDriver();
         ProjectUtils.get(driver);
+        TribeUtils.login(driver);
     }
 
     @AfterMethod
