@@ -21,6 +21,5 @@ public class SearchTest extends BaseTest {
 
         WebElement enterCity = driver.findElement(By.xpath("//*[@value='Саратов']"));
         //assertEquals(enterCity, "Саратов");
-        driver.quit();
     }
 }

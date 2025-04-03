@@ -23,7 +23,7 @@ public class ProjectUtils {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(chromeOptions);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); //ожидает пока загрузится страница поиска элемента перед следующим шагом (минимум 0,5 сек - макс - 2 сек)
 
         return driver;
     }
