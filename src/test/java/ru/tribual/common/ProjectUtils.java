@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 import java.util.Properties;
 
-public class ProjectUtils {
+public final class ProjectUtils {
     private static final Properties properties;
 
     private static final ChromeOptions chromeOptions;

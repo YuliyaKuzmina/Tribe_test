@@ -26,6 +26,8 @@ public abstract class BaseTest {
             driver.quit();
             wait5 = null;
         }
+        //TribeUtils.logout(driver);
+        //TribeUtils.deleteAccount(driver);
     }
 
     protected WebDriver getDriver() {

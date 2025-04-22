@@ -30,4 +30,18 @@ public class SettingsAccountTest extends BaseTest {
 
     Assert.assertEquals(driver.findElement(By.xpath("//*[@class='_user__username_zs1xn_80']")).getText(),"@"+ newLogin);
     }
+
+    @Test
+    public void settingsBirthDay () {
+        WebDriver driver = getDriver();
+        driver.findElement(By.xpath("//*[@alt='profile avatar']")).click();
+        getWait5();
+        driver.findElement(By.xpath("//li[contains (text(), 'Настройки')]")).click();
+
+        driver.findElement(By.xpath("//input[@type='date']")).sendKeys("1985-05-09"); // Разобраться с вводом в секции дд.мм.гггг
+
+        driver.findElement(By.xpath("//p[contains(text(), 'Сохранить изменения')]")).click();
+
+       // Assert.assertEquals(driver.findElement(By.xpath("//input[@type='date']")).getText("1985-05-09"));
+    }
 }
