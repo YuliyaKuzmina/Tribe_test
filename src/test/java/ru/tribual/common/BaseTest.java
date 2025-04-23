@@ -23,11 +23,12 @@ public abstract class BaseTest {
     @AfterMethod
     protected void afterMethod(Method method, ITestResult testResult) {
         if (testResult.isSuccess()) {
+            TribeUtils.logout(driver);
+            //TribeUtils.deleteAccount(driver);
             driver.quit();
             wait5 = null;
         }
-        //TribeUtils.logout(driver);
-        //TribeUtils.deleteAccount(driver);
+
     }
 
     protected WebDriver getDriver() {

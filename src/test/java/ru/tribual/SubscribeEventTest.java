@@ -19,15 +19,15 @@ public class SubscribeEventTest extends BaseTest {
 
         List<WebElement> buttons = driver.findElements(By.xpath("//*[contains(text(), 'Я пойду')]/parent::button"));
 
-
       //  boolean isVisible = button.isDisplayed(); //true если видим кнопку
 
          if  (buttons.isEmpty() == false) {
              driver.findElement(By.xpath("//*[contains(text(), 'Я пойду')]/parent::button")).click();
              driver.findElement(By.xpath("//*[contains(text(), 'Подтвердить')]")).click();
-         } else {
-           WebElement subscribeButton = driver.findElement(By.xpath("//*[contains(text(), 'Вы идете на это событие')]/parent::button"));
+             WebElement subscribeButton = driver.findElement(By.xpath("//*[contains(text(), 'Вы идете на это событие')]/parent::button"));
              Assert.assertTrue(subscribeButton.isDisplayed(), "Вы уже подписаны на это событие");
+         } else {
+             return;
          }
 
 //       String expectedUrl = "https://tribual.ru/#/fid/15575";
